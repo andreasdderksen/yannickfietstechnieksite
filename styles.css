@@ -252,7 +252,7 @@ img { max-width: 100%; display: block; }
 .card p { font-size: 16px; line-height: 1.68; color: #46658A; text-wrap: pretty; }
 
 /* ---------- over ---------- */
-.over { background: #1F3A5F; color: #DCE9F4; padding: 0; }
+.over { background: #1F3A5F; color: #DCE9F4; }
 .over-row {
   padding: 104px 32px;
   display: grid;
@@ -374,6 +374,7 @@ img { max-width: 100%; display: block; }
   color: #4F86A8;
 }
 .contact-insta-handle { font-size: 26px; font-weight: 600; letter-spacing: 0.01em; color: #1F3A5F; }
+.contact-email .contact-insta-handle { font-size: 20px; word-break: break-all; }
 .contact-arrow { font-size: 18px; color: #4F86A8; }
 .contact-note { background: #FFFFFF; padding: 26px 28px; }
 .contact-note p { font-size: 15px; line-height: 1.7; color: #46658A; text-wrap: pretty; }
@@ -450,6 +451,7 @@ img { max-width: 100%; display: block; }
   .contact-text { font-size: 14px; }
   .contact-insta { padding: 20px; }
   .contact-insta-handle { font-size: 17px; }
+  .contact-email .contact-insta-handle { font-size: 14px; }
   .contact-note { padding: 0 20px 20px; }
 
   .footer-row { padding: 24px 20px; flex-direction: column; align-items: flex-start; gap: 12px; }
