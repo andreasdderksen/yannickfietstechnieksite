@@ -59,31 +59,13 @@ img { max-width: 100%; display: block; }
 .btn-outline { border: 1px solid #4F86A8; color: #1F3A5F; }
 .btn-outline:hover { background: #C9DCEC; color: #1F3A5F; }
 
-.placeholder {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 24px;
+.photo {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  background: #C6D9E9;
 }
-.placeholder span {
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: 12px;
-  letter-spacing: 0.14em;
-  line-height: 1.7;
-}
-.placeholder-light {
-  background-color: #C6D9E9;
-  background-image: repeating-linear-gradient(135deg, rgba(31,58,95,0.07) 0 10px, transparent 10px 20px);
-  border: 1px solid #A9C4DA;
-}
-.placeholder-light span { color: #35577D; }
-.placeholder-dark {
-  background-color: #2C4B74;
-  background-image: repeating-linear-gradient(135deg, rgba(220,233,244,0.07) 0 10px, transparent 10px 20px);
-  border: 1px solid #3C5F8C;
-}
-.placeholder-dark span { color: #AFC7DB; }
 
 /* ---------- header ---------- */
 .site-header {
@@ -202,7 +184,7 @@ img { max-width: 100%; display: block; }
   gap: 14px;
 }
 .hero-media { position: relative; }
-.hero-photo { aspect-ratio: 4 / 5; width: 100%; }
+.hero-photo { aspect-ratio: 4 / 5; object-position: 50% 40%; }
 .hero-note {
   position: absolute;
   bottom: -26px;
@@ -258,7 +240,7 @@ img { max-width: 100%; display: block; }
   color: #4F86A8;
   white-space: nowrap;
 }
-.dienst-lead { max-width: 70ch; font-size: 17px; line-height: 1.68; color: #35577D; text-wrap: pretty; }
+.dienst-lead { font-size: 17px; line-height: 1.68; color: #35577D; text-wrap: pretty; }
 .dienst-sub {
   margin-top: 28px;
   font-family: 'IBM Plex Mono', monospace;
@@ -274,11 +256,10 @@ img { max-width: 100%; display: block; }
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 1px;
-  background: #E4EDF5;
-  border: 1px solid #E4EDF5;
 }
 .checklist li {
   background: #FFFFFF;
+  box-shadow: 0 0 0 1px #E4EDF5;
   padding: 16px 20px 16px 44px;
   position: relative;
   font-size: 15px;
@@ -295,7 +276,14 @@ img { max-width: 100%; display: block; }
   background: #4F86A8;
 }
 .checklist strong { color: #1F3A5F; font-weight: 600; }
-.dienst-notes { margin-top: 28px; max-width: 70ch; }
+@media (min-width: 901px) {
+  .checklist li:last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+    justify-self: center;
+    width: calc(50% - 0.5px);
+  }
+}
+.dienst-notes { margin-top: 28px; }
 .dienst-notes p { font-size: 16px; line-height: 1.68; color: #46658A; text-wrap: pretty; }
 .dienst-notes p + p { margin-top: 12px; }
 
@@ -308,7 +296,7 @@ img { max-width: 100%; display: block; }
   gap: 72px;
   align-items: center;
 }
-.over-photo { aspect-ratio: 1 / 1; }
+.over-photo { aspect-ratio: 1 / 1; object-position: 50% 30%; }
 .over-text-first { margin-top: 26px; }
 .over-text {
   margin-bottom: 18px;
@@ -349,6 +337,82 @@ img { max-width: 100%; display: block; }
   text-wrap: pretty;
 }
 
+/* ---------- reviews ---------- */
+.review-track {
+  display: flex;
+  gap: 22px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+}
+.review-track::-webkit-scrollbar { display: none; }
+.review {
+  margin: 0;
+  flex: 0 0 calc((100% - 44px) / 3);
+  display: flex;
+  flex-direction: column;
+  padding: 28px 28px 26px;
+  background: #FFFFFF;
+  border: 1px solid #D3E1EE;
+  scroll-snap-align: start;
+}
+.review-stars { font-size: 16px; letter-spacing: 0.18em; color: #4F86A8; }
+.review blockquote {
+  margin: 14px 0 20px;
+  font-size: 16px;
+  line-height: 1.68;
+  color: #35577D;
+  text-wrap: pretty;
+}
+.review figcaption {
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding-top: 16px;
+  border-top: 1px solid #E4EDF5;
+}
+.review-name { font-size: 15px; font-weight: 600; color: #1F3A5F; }
+.review-carousel { position: relative; margin-top: 40px; padding: 0 66px; }
+.review-btn {
+  position: absolute;
+  top: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 46px;
+  height: 46px;
+  padding: 0;
+  transform: translateY(-50%);
+  color: #1F3A5F;
+  background: #FFFFFF;
+  border: 1px solid #4F86A8;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+.review-btn svg {
+  width: 18px;
+  height: 18px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.review-btn:hover { background: #C9DCEC; }
+.review-btn-prev { left: 0; }
+.review-btn-next { right: 0; }
+.review-more { margin-top: 24px; font-size: 15px; }
+.review-more a { border-bottom: 1px solid #4F86A8; color: #46658A; }
+.review-source {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #4F86A8;
+}
+
 /* ---------- gallery ---------- */
 .gallery { background: #DCE9F4; border-top: 1px solid #C6D9E9; border-bottom: 1px solid #C6D9E9; padding: 88px 32px; }
 .gallery-head { border-bottom: none; padding-bottom: 0; margin-bottom: 40px; }
@@ -359,7 +423,7 @@ img { max-width: 100%; display: block; }
   grid-template-columns: repeat(3, 1fr);
   gap: 22px;
 }
-.gallery-photo { aspect-ratio: 1 / 1; }
+.gallery-photo { aspect-ratio: 3 / 2; }
 
 /* ---------- contact ---------- */
 .contact-row {
@@ -410,8 +474,7 @@ img { max-width: 100%; display: block; }
 }
 .contact-insta-handle { font-size: 26px; font-weight: 600; letter-spacing: 0.01em; color: #1F3A5F; }
 .contact-email .contact-insta-handle { font-size: 20px; word-break: break-all; }
-.contact-arrow { font-size: 18px; color: #4F86A8; }
-.contact-note { background: #FFFFFF; padding: 26px 28px; }
+.contact-arrow { font-size: 18px; color: #4F86A8; }.contact-note { background: #FFFFFF; padding: 26px 28px; }
 .contact-note p { font-size: 15px; line-height: 1.7; color: #46658A; text-wrap: pretty; }
 
 /* ---------- footer ---------- */
@@ -441,6 +504,7 @@ img { max-width: 100%; display: block; }
   .hero-note { position: static; margin-top: -26px; max-width: none; }
   .over-row { grid-template-columns: 1fr; gap: 40px; }
   .checklist { grid-template-columns: 1fr; }
+  .review { flex-basis: calc((100% - 22px) / 2); }
   .gallery-grid { grid-template-columns: repeat(2, 1fr); }
   .contact-row { grid-template-columns: 1fr; gap: 40px; }
 }
@@ -473,6 +537,13 @@ img { max-width: 100%; display: block; }
   .checklist li { padding: 14px 16px 14px 38px; font-size: 14px; }
   .checklist li::before { left: 16px; top: 19px; }
   .dienst-notes p { font-size: 14px; }
+
+  .review-carousel { margin-top: 24px; padding: 0 40px; }
+  .review-track { gap: 16px; }
+  .review { flex-basis: 100%; padding: 20px 18px 18px; }
+  .review-btn { width: 34px; height: 34px; }
+  .review-btn svg { width: 15px; height: 15px; }
+  .review blockquote { font-size: 14px; }
 
   .werkwijze { padding-top: 0; }
   .werkwijze .wrap { padding-top: 28px; }
