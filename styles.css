@@ -194,6 +194,7 @@ img { max-width: 100%; display: block; }
   color: #35577D;
   text-wrap: pretty;
 }
+.hero .lead + .lead { margin-top: 16px; }
 .hero-actions {
   margin-top: 38px;
   display: flex;
@@ -234,22 +235,69 @@ img { max-width: 100%; display: block; }
   color: #35577D;
   text-wrap: pretty;
 }
-.card-grid {
+.section-intro p + p { margin-top: 12px; }
+
+.dienst {
+  margin-top: 40px;
+  padding: 40px 40px 44px;
+  background: #FFFFFF;
+  border: 1px solid #D3E1EE;
+}
+.dienst-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 16px;
+}
+.dienst h3 { font-size: 28px; font-weight: 600; letter-spacing: -0.01em; }
+.dienst-price {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 26px;
+  font-weight: 500;
+  color: #4F86A8;
+  white-space: nowrap;
+}
+.dienst-lead { max-width: 70ch; font-size: 17px; line-height: 1.68; color: #35577D; text-wrap: pretty; }
+.dienst-sub {
+  margin-top: 28px;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #4F86A8;
+}
+.checklist {
+  list-style: none;
+  margin: 16px 0 0;
+  padding: 0;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 1px;
-  background: #D3E1EE;
-  margin-top: 1px;
+  background: #E4EDF5;
+  border: 1px solid #E4EDF5;
 }
-.card {
-  background: #F4F8FB;
-  padding: 40px 34px 44px;
-  transition: background 0.15s ease;
+.checklist li {
+  background: #FFFFFF;
+  padding: 16px 20px 16px 44px;
+  position: relative;
+  font-size: 15px;
+  line-height: 1.6;
+  color: #46658A;
 }
-.card:hover { background: #FFFFFF; }
-.card-num { font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #AFC7DB; }
-.card h3 { margin: 16px 0 12px; font-size: 23px; font-weight: 600; letter-spacing: -0.01em; }
-.card p { font-size: 16px; line-height: 1.68; color: #46658A; text-wrap: pretty; }
+.checklist li::before {
+  content: '';
+  position: absolute;
+  left: 20px;
+  top: 21px;
+  width: 8px;
+  height: 8px;
+  background: #4F86A8;
+}
+.checklist strong { color: #1F3A5F; font-weight: 600; }
+.dienst-notes { margin-top: 28px; max-width: 70ch; }
+.dienst-notes p { font-size: 16px; line-height: 1.68; color: #46658A; text-wrap: pretty; }
+.dienst-notes p + p { margin-top: 12px; }
 
 /* ---------- over ---------- */
 .over { background: #1F3A5F; color: #DCE9F4; }
@@ -261,14 +309,7 @@ img { max-width: 100%; display: block; }
   align-items: center;
 }
 .over-photo { aspect-ratio: 1 / 1; }
-.over-quote {
-  margin: 26px 0 22px;
-  font-size: 30px;
-  line-height: 1.35;
-  font-weight: 500;
-  letter-spacing: -0.01em;
-  text-wrap: pretty;
-}
+.over-text-first { margin-top: 26px; }
 .over-text {
   margin-bottom: 18px;
   font-size: 17px;
@@ -297,22 +338,16 @@ img { max-width: 100%; display: block; }
 
 /* ---------- werkwijze ---------- */
 .werkwijze .section-label { margin-bottom: 48px; }
-.steps {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 34px;
+.werkwijze { padding-top: 0; }
+.werkwijze .wrap { border-top: 2px solid #1F3A5F; padding-top: 40px; }
+.werkwijze-text {
+  max-width: 40ch;
+  font-size: 28px;
+  line-height: 1.45;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  text-wrap: pretty;
 }
-.step { border-top: 2px solid #AFC7DB; padding-top: 22px; }
-.step-active { border-top-color: #1F3A5F; }
-.step-num {
-  margin-bottom: 10px;
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: 12px;
-  letter-spacing: 0.14em;
-  color: #4F86A8;
-}
-.step h3 { margin-bottom: 10px; font-size: 20px; font-weight: 600; }
-.step p { font-size: 16px; line-height: 1.68; color: #46658A; text-wrap: pretty; }
 
 /* ---------- gallery ---------- */
 .gallery { background: #DCE9F4; border-top: 1px solid #C6D9E9; border-bottom: 1px solid #C6D9E9; padding: 88px 32px; }
@@ -405,8 +440,7 @@ img { max-width: 100%; display: block; }
   .hero-media { order: -1; }
   .hero-note { position: static; margin-top: -26px; max-width: none; }
   .over-row { grid-template-columns: 1fr; gap: 40px; }
-  .card-grid { grid-template-columns: repeat(2, 1fr); }
-  .steps { grid-template-columns: repeat(2, 1fr); gap: 28px 34px; }
+  .checklist { grid-template-columns: 1fr; }
   .gallery-grid { grid-template-columns: repeat(2, 1fr); }
   .contact-row { grid-template-columns: 1fr; gap: 40px; }
 }
@@ -432,17 +466,22 @@ img { max-width: 100%; display: block; }
   .hero-note { margin-top: 22px; }
 
   .section-head { flex-direction: column; align-items: flex-start; gap: 16px; }
-  .card-grid { grid-template-columns: 1fr; }
-  .card { padding: 18px; }
-  .card h3 { font-size: 17px; margin: 10px 0 6px; }
-  .card p { font-size: 14px; line-height: 1.6; }
+  .dienst { margin-top: 24px; padding: 22px 18px 26px; }
+  .dienst h3 { font-size: 21px; }
+  .dienst-price { font-size: 20px; }
+  .dienst-lead { font-size: 15px; }
+  .checklist li { padding: 14px 16px 14px 38px; font-size: 14px; }
+  .checklist li::before { left: 16px; top: 19px; }
+  .dienst-notes p { font-size: 14px; }
+
+  .werkwijze { padding-top: 0; }
+  .werkwijze .wrap { padding-top: 28px; }
+  .werkwijze-text { font-size: 20px; }
 
   .over-row { padding: 32px 20px; }
-  .over-quote { font-size: 21px; margin: 16px 0 12px; }
   .over-text { font-size: 14px; margin-bottom: 12px; }
+  .over-text-first { margin-top: 16px; }
   .stats { grid-template-columns: 1fr; gap: 16px; }
-
-  .steps { grid-template-columns: 1fr; gap: 16px; }
 
   .gallery { padding: 32px 20px; }
   .gallery-grid { grid-template-columns: 1fr; gap: 16px; }
