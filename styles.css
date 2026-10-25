@@ -529,7 +529,18 @@ img { max-width: 100%; display: block; }
   .over-text-first { margin-top: 16px; }
 
   .gallery { padding: 32px 20px; }
-  .gallery-grid { grid-template-columns: 1fr; gap: 16px; }
+  .gallery-grid {
+    display: flex;
+    gap: 12px;
+    margin: 0 -20px;
+    padding: 0 20px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-padding: 0 20px;
+    scrollbar-width: none;
+  }
+  .gallery-grid::-webkit-scrollbar { display: none; }
+  .gallery-photo { flex: 0 0 85%; min-width: 0; scroll-snap-align: start; }
 
   .contact-heading { font-size: 26px; }
   .contact-text { font-size: 14px; }
