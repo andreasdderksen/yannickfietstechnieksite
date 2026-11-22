@@ -184,7 +184,7 @@ img { max-width: 100%; display: block; }
   gap: 14px;
 }
 .hero-media { position: relative; }
-.hero-photo { aspect-ratio: 4 / 5; object-position: 50% 40%; }
+.hero-photo { aspect-ratio: 4 / 5; object-position: 41% 50%; }
 
 /* ---------- sections (shared) ---------- */
 .section { padding: 104px 32px 96px; }
@@ -303,7 +303,7 @@ img { max-width: 100%; display: block; }
   gap: 72px;
   align-items: center;
 }
-.over-photo { aspect-ratio: 1 / 1; object-position: 50% 30%; }
+.over-photo { aspect-ratio: 1 / 1; object-position: 50% 50%; }
 .over-text-first { margin-top: 26px; }
 .over-text {
   margin-bottom: 18px;
@@ -478,7 +478,7 @@ img { max-width: 100%; display: block; }
    ===================================================== */
 @media (max-width: 900px) {
   .hero-row { grid-template-columns: 1fr; gap: 48px; }
-  .hero-photo { aspect-ratio: 4 / 3; object-position: 50% 30%; }
+  .hero-photo { aspect-ratio: 4 / 3; object-position: 25% 50%; }
   .over-row { grid-template-columns: 1fr; gap: 40px; }
   .checklist { grid-template-columns: 1fr; }
   .review { flex-basis: calc((100% - 22px) / 2); }
